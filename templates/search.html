@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <form method=POST action="{{ url_for('search') }}">
+                <div class="form-group">
+                    <label>Search by Student Name (Type "all" to view all entries)</label>
+                    <input type="text" class="form-control" name="student_name" placeholder="Name Surname">
+                </div>
+                <div class="form-group">
+                    <label>Search by CGPA</label>
+                    <input type="number" class="form-control" name="lower_bound" placeholder="Lower Bound of GPA">
+                    <input type="number" class="form-control" name="upper_bound" placeholder="Upper Bound of GPA">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Search</button>
+            </form>
+            <br>
+        </div>
+    </div>
+</div>
+<div class="container">
+<h2>Search Results</h2>
+<div class="table-responsive">
+<table class="table table-condensed table-bordered table-striped">
+<thead>
+    <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>CGPA</th>
+    </tr>
+</thead>
+<tbody>
+{% for row in output %}
+<tr>
+    <td>{{ row['sno']|tojson|safe }}</td>
+    <td>{{ row['name'] }}</td>
+    <td>{{ row['age'] }}</td>
+    <td>{{ row['CGPA'] }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% endblock %}
