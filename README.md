@@ -1,4 +1,4 @@
-#University Management Appplication
+# University Management Appplication
 ***
 
 This is the git repo for the project I created as a part of assessment for *DATABASE MANAGEMENT SYSTEMS Lab, 4th Semester, 2017.*
